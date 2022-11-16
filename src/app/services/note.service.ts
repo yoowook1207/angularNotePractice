@@ -29,7 +29,6 @@ export class NoteService {
     let storedArray =localStorage.getItem("notePractice")
     if (typeof storedArray === 'string') {
       this.notes = JSON.parse(storedArray)
-      console.log(this.notes)
     }
   }
 

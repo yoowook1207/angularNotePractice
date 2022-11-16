@@ -1,16 +1,16 @@
 <div class="noteTake">
   <form [formGroup]="noteForm" class="inputContainer">
-    <input class="titleInput" formControlName="title" />
-    <textarea class="content" formControlName="content"></textarea>
+    <input class="titleInput" formControlName="title"/>
+    <textarea class="content" formControlName="content" #title></textarea>
   </form>
   <div class="btnContainer">
     <button
     (click)="undo()"
     class="btn"
-    [disabled]="isChanged"
+    [disabled]="btnDis"
     >
     revert</button>
-    <button (click)="addNote()" class="btn" [disabled]="isChanged">save</button>
+    <button (click)="addNote()" class="btn" [disabled]="btnDis">save</button>
   </div>
 </div>
 

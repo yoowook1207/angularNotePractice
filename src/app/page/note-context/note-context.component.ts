@@ -11,7 +11,10 @@ import { NoteService } from 'src/app/services/note.service';
 export class NoteContextComponent implements OnInit{
   noteForm!: FormGroup;
   noteFromCall$ = {};
-  isChanged=false;
+  btnDis=true;
+  @ViewChild('title', { static: true }) inputBox!: ElementRef;
+
+  private eventSubscription!: Subscription;
 
   constructor(public noteService: NoteService, private fb:FormBuilder) { }
 
@@ -28,11 +31,8 @@ export class NoteContextComponent implements OnInit{
       content: ''
     })
     this.noteService.selectedNote$.subscribe(e=> this.noteForm.setValue(e));
+    this.eventSubscription = fromEvent(this.inputBox.nativeElement, 'keyup').subscribe(()=>{this.btnDis=false})
   }
-
-  // if(this.title.value == '') {
-  //   this.isChanged=true
-  // }
 
   addNote() {
     if (this.title.value == '' || this.content.value =='') {
@@ -42,12 +42,13 @@ export class NoteContextComponent implements OnInit{
     this.noteService.saveNote(this.noteForm.value)
     alert('note is saved!')
     this.noteForm.setValue({title:'', content:''})
-    // this.isChanged=true
+    this.btnDis=true
   }
 
   undo(){
     if(this.noteForm.value.title != '') {
       this.noteService.getSingleNote(this.noteForm.value.title)
+      this.btnDis=true
     }
   }
 }
