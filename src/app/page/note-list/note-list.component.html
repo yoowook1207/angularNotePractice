@@ -1,0 +1,17 @@
+<div class="noteList">
+    <div class="title">
+        <h1>Notes</h1>
+        <button class="plusBtn">+</button>
+    </div>
+    <div class="lists">
+        <li class="singleNote" *ngFor="let aNote of noteList">
+            <p class="pointer" (click)="noteClick(aNote.title)">
+                {{aNote.title}}
+            </p>
+            <p class="pointer" (click)="noteDelete(aNote)">
+                [X]
+            </p>
+        </li>
+    </div>
+</div>
+

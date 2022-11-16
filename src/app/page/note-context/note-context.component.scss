@@ -1,0 +1,29 @@
+.noteTake {
+    padding: 20px;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.titleInput {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    height: 200px;
+}
+
+.btnContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 5px;
+    min-width: 60px;
+}

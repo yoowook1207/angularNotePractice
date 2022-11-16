@@ -1,0 +1,17 @@
+.home {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+.list {
+    width: 50%;
+    background-color: bisque;
+    height: 100%;
+}
+
+.context {
+    width: 50%;
+    height: 100%;
+}
