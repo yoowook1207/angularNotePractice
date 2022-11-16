@@ -33,6 +33,10 @@ export class NoteService {
   }
 
   getSingleNote (noteTitle:string) {
+    if(!this.notes.find(e=>e.title == noteTitle)) {
+      alert('Save new note first!')
+      return
+    }
     const found = this.notes.find(e => e.title == noteTitle)
     this.singleNote = found;
     this.singleNote$.next(this.singleNote);

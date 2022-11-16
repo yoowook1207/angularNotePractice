@@ -14,7 +14,6 @@ export class NoteListComponent implements OnInit {
   noteList: Note[] = []
 
   ngOnInit(): void {
-    console.log('init!')
     this.noteService.getAllNote()
     this.noteList=this.noteService.notes
   }
